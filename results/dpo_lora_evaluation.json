@@ -1,0 +1,920 @@
+{
+  "summary": {
+    "dataset": "/content/drive/MyDrive/Soup/RussianDPO/Data/train.jsonl",
+    "examples_requested": 100,
+    "examples_loaded": 100,
+    "examples_valid": 100,
+    "examples_correct": 93,
+    "preference_accuracy": 0.93,
+    "mean_margin": 0.8876676833629609,
+    "median_margin": 0.7653363943099976,
+    "model_type": "PeftModelForCausalLM",
+    "evaluation_type": "chosen_vs_rejected_mean_log_probability",
+    "base_vs_lora_generation": {
+      "status": "SKIPPED",
+      "reason": "Base generation was previously shown to fail because the existing Base model uses an incompatible CPU/disk offload configuration. No additional 8B model was loaded."
+    }
+  },
+  "results": [
+    {
+      "index": 1,
+      "status": "PASS",
+      "prompt": "Нужно подтвердить корпоративный домен, но письмо не приходит.",
+      "chosen_logprob": -2.218580961227417,
+      "rejected_logprob": -2.332186698913574,
+      "margin": 0.11360573768615723,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 2,
+      "status": "PASS",
+      "prompt": "После переустановки я не вижу старые данные.",
+      "chosen_logprob": -2.4044275283813477,
+      "rejected_logprob": -3.214122772216797,
+      "margin": 0.8096952438354492,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 3,
+      "status": "PASS",
+      "prompt": "Я пополнил счёт, но деньги ещё не зачислились.",
+      "chosen_logprob": -2.1896536350250244,
+      "rejected_logprob": -2.2203097343444824,
+      "margin": 0.030656099319458008,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 4,
+      "status": "PASS",
+      "prompt": "Мне нужно получить справку по счёту, но приложение выдаёт ошибку при формировании документа.",
+      "chosen_logprob": -2.284383773803711,
+      "rejected_logprob": -2.9932422637939453,
+      "margin": 0.7088584899902344,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 5,
+      "status": "PASS",
+      "prompt": "Мне пришло уведомление о задолженности, хотя я всё оплатил.",
+      "chosen_logprob": -2.1559951305389404,
+      "rejected_logprob": -2.8262083530426025,
+      "margin": 0.6702132225036621,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 6,
+      "status": "PASS",
+      "prompt": "Почта импортируется, но вложения отсутствуют.",
+      "chosen_logprob": -2.3445611000061035,
+      "rejected_logprob": -2.5009169578552246,
+      "margin": 0.1563558578491211,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 7,
+      "status": "PASS",
+      "prompt": "Некоторые файлы не синхронизируются вообще.",
+      "chosen_logprob": -2.380943775177002,
+      "rejected_logprob": -2.9067111015319824,
+      "margin": 0.5257673263549805,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 8,
+      "status": "PASS",
+      "prompt": "В приложении неправильно отображается часовой пояс, из-за этого встречи стоят не на том времени.",
+      "chosen_logprob": -2.187940835952759,
+      "rejected_logprob": -2.5972096920013428,
+      "margin": 0.409268856048584,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 9,
+      "status": "PASS",
+      "prompt": "Хочу включить обязательную двухфакторную защиту для всех сотрудников.",
+      "chosen_logprob": -2.552554130554199,
+      "rejected_logprob": -2.40567946434021,
+      "margin": -0.14687466621398926,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 10,
+      "status": "PASS",
+      "prompt": "После подключения интеграции часть платежей не подтягивается в систему.",
+      "chosen_logprob": -1.8292036056518555,
+      "rejected_logprob": -3.5286502838134766,
+      "margin": 1.699446678161621,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 11,
+      "status": "PASS",
+      "prompt": "Платёж отклонён, но банк показывает заблокированную сумму.",
+      "chosen_logprob": -2.3473925590515137,
+      "rejected_logprob": -3.5254766941070557,
+      "margin": 1.178084135055542,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 12,
+      "status": "PASS",
+      "prompt": "Мне нужно изменить имя получателя в заказе, потому что подарок будет получать другой человек.",
+      "chosen_logprob": -2.2233471870422363,
+      "rejected_logprob": -3.7023427486419678,
+      "margin": 1.4789955615997314,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 13,
+      "status": "PASS",
+      "prompt": "При экспорте отчёта CSV русские буквы превращаются в непонятные символы.",
+      "chosen_logprob": -2.295264720916748,
+      "rejected_logprob": -3.564774513244629,
+      "margin": 1.2695097923278809,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 14,
+      "status": "PASS",
+      "prompt": "Импорт завершился успешно, но количество клиентов в системе меньше количества строк файла.",
+      "chosen_logprob": -2.081155300140381,
+      "rejected_logprob": -3.456690788269043,
+      "margin": 1.375535488128662,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 15,
+      "status": "PASS",
+      "prompt": "После удаления пользователя его имя всё ещё видно в старых отчётах. Данные не удалились?",
+      "chosen_logprob": -1.9791146516799927,
+      "rejected_logprob": -2.3976075649261475,
+      "margin": 0.4184929132461548,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 16,
+      "status": "PASS",
+      "prompt": "После смены домена нашей компании ссылки в уведомлениях всё ещё ведут на старый сайт.",
+      "chosen_logprob": -2.245543956756592,
+      "rejected_logprob": -3.3654279708862305,
+      "margin": 1.1198840141296387,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 17,
+      "status": "PASS",
+      "prompt": "Некоторые контакты исчезли после синхронизации с внешней системой.",
+      "chosen_logprob": -1.890226125717163,
+      "rejected_logprob": -2.5572509765625,
+      "margin": 0.6670248508453369,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 18,
+      "status": "PASS",
+      "prompt": "Я случайно указал неправильную почту при регистрации и теперь не могу подтвердить аккаунт.",
+      "chosen_logprob": -2.232577085494995,
+      "rejected_logprob": -1.3644592761993408,
+      "margin": -0.8681178092956543,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 19,
+      "status": "PASS",
+      "prompt": "Получаю 401 при запросе к API, хотя токен выглядит правильным.",
+      "chosen_logprob": -2.3958022594451904,
+      "rejected_logprob": -3.61075758934021,
+      "margin": 1.2149553298950195,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 20,
+      "status": "PASS",
+      "prompt": "Наша интеграция перестала получать события после технических работ.",
+      "chosen_logprob": -2.058412790298462,
+      "rejected_logprob": -2.6281650066375732,
+      "margin": 0.5697522163391113,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 21,
+      "status": "PASS",
+      "prompt": "Система отправляет напоминание клиенту после того, как он уже выполнил действие.",
+      "chosen_logprob": -2.355827569961548,
+      "rejected_logprob": -3.8903844356536865,
+      "margin": 1.5345568656921387,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 22,
+      "status": "PASS",
+      "prompt": "Мы оплатили годовой тариф, но в аккаунте отображается помесячный. Не хочу, чтобы с нас снова списали деньги.",
+      "chosen_logprob": -2.0898501873016357,
+      "rejected_logprob": -2.968472480773926,
+      "margin": 0.87862229347229,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 23,
+      "status": "PASS",
+      "prompt": "Мне нужно объединить два заказа в одну доставку.",
+      "chosen_logprob": -2.2362358570098877,
+      "rejected_logprob": -3.091266632080078,
+      "margin": 0.8550307750701904,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 24,
+      "status": "PASS",
+      "prompt": "Я хочу получить товар в другой комплектации, но в заказе уже стоит стандартная. Можно ли поменять?",
+      "chosen_logprob": -1.6427221298217773,
+      "rejected_logprob": -4.480582237243652,
+      "margin": 2.837860107421875,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 25,
+      "status": "PASS",
+      "prompt": "Не могу удалить старую кампанию, потому что система говорит, что она связана с автоматизацией.",
+      "chosen_logprob": -1.6511621475219727,
+      "rejected_logprob": -3.0942766666412354,
+      "margin": 1.4431145191192627,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 26,
+      "status": "PASS",
+      "prompt": "После обновления банковского приложения исчезла история некоторых переводов.",
+      "chosen_logprob": -1.9413026571273804,
+      "rejected_logprob": -3.6116139888763428,
+      "margin": 1.6703113317489624,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 27,
+      "status": "PASS",
+      "prompt": "Я удалил роль, но пользователи всё ещё её получают.",
+      "chosen_logprob": -2.5387370586395264,
+      "rejected_logprob": -3.776111602783203,
+      "margin": 1.2373745441436768,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 28,
+      "status": "PASS",
+      "prompt": "После смены часового пояса даты в отчётах стали съезжать на предыдущий день.",
+      "chosen_logprob": -2.272282123565674,
+      "rejected_logprob": -4.330778121948242,
+      "margin": 2.0584959983825684,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 29,
+      "status": "PASS",
+      "prompt": "Посылка застряла на сортировке уже несколько дней.",
+      "chosen_logprob": -2.334256410598755,
+      "rejected_logprob": -3.9191367626190186,
+      "margin": 1.5848803520202637,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 30,
+      "status": "PASS",
+      "prompt": "Оплатил счёт от другой компании, но деньги ушли вам.",
+      "chosen_logprob": -2.0938618183135986,
+      "rejected_logprob": -4.1494855880737305,
+      "margin": 2.055623769760132,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 31,
+      "status": "PASS",
+      "prompt": "Нам нужно временно отключить интеграцию, но не удалять её настройки.",
+      "chosen_logprob": -2.3825011253356934,
+      "rejected_logprob": -4.563267707824707,
+      "margin": 2.1807665824890137,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 32,
+      "status": "PASS",
+      "prompt": "Мне нужно установить приложение на новый телефон, но я боюсь потерять доступ к аккаунту.",
+      "chosen_logprob": -1.9781466722488403,
+      "rejected_logprob": -2.2750015258789062,
+      "margin": 0.2968548536300659,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 33,
+      "status": "PASS",
+      "prompt": "Я оплатил счёт, но система показывает его неоплаченным.",
+      "chosen_logprob": -2.1667640209198,
+      "rejected_logprob": -3.4408257007598877,
+      "margin": 1.274061679840088,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 34,
+      "status": "PASS",
+      "prompt": "Не понимаю, что означает ошибка 403.",
+      "chosen_logprob": -2.451817750930786,
+      "rejected_logprob": -3.76430082321167,
+      "margin": 1.3124830722808838,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 35,
+      "status": "PASS",
+      "prompt": "Не могу отправить фотографию через приложение.",
+      "chosen_logprob": -2.1429076194763184,
+      "rejected_logprob": -2.6611452102661133,
+      "margin": 0.5182375907897949,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 36,
+      "status": "PASS",
+      "prompt": "Не могу изменить адрес электронной почты, потому что письмо подтверждения не приходит.",
+      "chosen_logprob": -2.191185474395752,
+      "rejected_logprob": -2.4817278385162354,
+      "margin": 0.2905423641204834,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 37,
+      "status": "PASS",
+      "prompt": "Мой номер телефона уже привязан к другому аккаунту.",
+      "chosen_logprob": -2.5259499549865723,
+      "rejected_logprob": -3.2412497997283936,
+      "margin": 0.7152998447418213,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 38,
+      "status": "PASS",
+      "prompt": "Не могу распечатать документ из личного кабинета.",
+      "chosen_logprob": -2.3516972064971924,
+      "rejected_logprob": -2.00699520111084,
+      "margin": -0.34470200538635254,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 39,
+      "status": "PASS",
+      "prompt": "Мне нужно срочно добавить документ к уже созданному обращению.",
+      "chosen_logprob": -2.3366539478302,
+      "rejected_logprob": -2.2622780799865723,
+      "margin": -0.07437586784362793,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 40,
+      "status": "PASS",
+      "prompt": "Поддержка отвечает только шаблонными сообщениями.",
+      "chosen_logprob": -2.1605875492095947,
+      "rejected_logprob": -2.7381834983825684,
+      "margin": 0.5775959491729736,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 41,
+      "status": "PASS",
+      "prompt": "После повторного включения отчёта он начал приходить два раза.",
+      "chosen_logprob": -2.927452564239502,
+      "rejected_logprob": -3.3088746070861816,
+      "margin": 0.3814220428466797,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 42,
+      "status": "PASS",
+      "prompt": "Сотрудник заблокирован после неправильного пароля.",
+      "chosen_logprob": -2.2576305866241455,
+      "rejected_logprob": -2.703200578689575,
+      "margin": 0.4455699920654297,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 43,
+      "status": "PASS",
+      "prompt": "Мне доставили товар без заводской пломбы.",
+      "chosen_logprob": -2.141774892807007,
+      "rejected_logprob": -3.448561668395996,
+      "margin": 1.3067867755889893,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 44,
+      "status": "PASS",
+      "prompt": "Платёж завис в статусе «обрабатывается» уже несколько часов.",
+      "chosen_logprob": -2.1249618530273438,
+      "rejected_logprob": -3.323546886444092,
+      "margin": 1.198585033416748,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 45,
+      "status": "PASS",
+      "prompt": "Почему система требует документ для изменения обычного контактного адреса?",
+      "chosen_logprob": -2.4372072219848633,
+      "rejected_logprob": -5.895063877105713,
+      "margin": 3.4578566551208496,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 46,
+      "status": "PASS",
+      "prompt": "После синхронизации номера телефонов клиентов изменились на неправильный формат.",
+      "chosen_logprob": -2.576512575149536,
+      "rejected_logprob": -2.868381977081299,
+      "margin": 0.2918694019317627,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 47,
+      "status": "PASS",
+      "prompt": "Мне пришло уведомление о повышении цены подписки.",
+      "chosen_logprob": -2.4363484382629395,
+      "rejected_logprob": -2.5848217010498047,
+      "margin": 0.14847326278686523,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 48,
+      "status": "PASS",
+      "prompt": "Приложение банка не запускается после обновления.",
+      "chosen_logprob": -1.9967315196990967,
+      "rejected_logprob": -2.4632785320281982,
+      "margin": 0.46654701232910156,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 49,
+      "status": "PASS",
+      "prompt": "Я отключил уведомления о маркетинге, но продолжаю получать предложения.",
+      "chosen_logprob": -2.223006248474121,
+      "rejected_logprob": -3.4960458278656006,
+      "margin": 1.2730395793914795,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 50,
+      "status": "PASS",
+      "prompt": "Файл с документами не загружается в форму обращения.",
+      "chosen_logprob": -2.2592878341674805,
+      "rejected_logprob": -3.4187939167022705,
+      "margin": 1.15950608253479,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 51,
+      "status": "PASS",
+      "prompt": "Синхронизация с CRM постоянно возвращает конфликт записей.",
+      "chosen_logprob": -2.075003147125244,
+      "rejected_logprob": -2.5573997497558594,
+      "margin": 0.48239660263061523,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 52,
+      "status": "PASS",
+      "prompt": "После изменения реквизитов старые документы всё ещё содержат старые данные.",
+      "chosen_logprob": -2.304060220718384,
+      "rejected_logprob": -3.205106496810913,
+      "margin": 0.9010462760925293,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 53,
+      "status": "PASS",
+      "prompt": "После восстановления резервной копии данные в отчётах не совпадают с текущими.",
+      "chosen_logprob": -2.156094551086426,
+      "rejected_logprob": -3.0626888275146484,
+      "margin": 0.9065942764282227,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 54,
+      "status": "PASS",
+      "prompt": "Я хочу объединить два аккаунта, которые случайно создал на одну компанию.",
+      "chosen_logprob": -2.296354055404663,
+      "rejected_logprob": -3.0198957920074463,
+      "margin": 0.7235417366027832,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 55,
+      "status": "PASS",
+      "prompt": "Письма из CRM уходят с неправильным адресом отправителя.",
+      "chosen_logprob": -2.5939836502075195,
+      "rejected_logprob": -2.798335313796997,
+      "margin": 0.20435166358947754,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 56,
+      "status": "PASS",
+      "prompt": "Не работает экспорт данных, кнопка зависает.",
+      "chosen_logprob": -2.227147102355957,
+      "rejected_logprob": -3.8375496864318848,
+      "margin": 1.6104025840759277,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 57,
+      "status": "PASS",
+      "prompt": "Мне нужно перенести подписку на другой аккаунт.",
+      "chosen_logprob": -2.141458034515381,
+      "rejected_logprob": -3.256523370742798,
+      "margin": 1.115065336227417,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 58,
+      "status": "PASS",
+      "prompt": "Уведомления из интеграции приходят с неправильным именем отправителя.",
+      "chosen_logprob": -2.0231893062591553,
+      "rejected_logprob": -3.856344699859619,
+      "margin": 1.8331553936004639,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 59,
+      "status": "PASS",
+      "prompt": "При выставлении счёта система округляет сумму, и итог отличается от расчёта клиента.",
+      "chosen_logprob": -2.4768104553222656,
+      "rejected_logprob": -2.594146728515625,
+      "margin": 0.11733627319335938,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 60,
+      "status": "PASS",
+      "prompt": "Карту скоро нужно заменить, но я не понимаю, как заказать новую.",
+      "chosen_logprob": -2.459084987640381,
+      "rejected_logprob": -2.9504590034484863,
+      "margin": 0.49137401580810547,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 61,
+      "status": "PASS",
+      "prompt": "У нас несколько сотрудников видят разные версии одного отчёта. Как такое вообще возможно?",
+      "chosen_logprob": -2.424678325653076,
+      "rejected_logprob": -3.4712717533111572,
+      "margin": 1.046593427658081,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 62,
+      "status": "PASS",
+      "prompt": "Мне начислили штраф, хотя я оплатил в последний день.",
+      "chosen_logprob": -2.540576457977295,
+      "rejected_logprob": -3.447038173675537,
+      "margin": 0.9064617156982422,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 63,
+      "status": "PASS",
+      "prompt": "Не могу изменить название рабочей области.",
+      "chosen_logprob": -2.1631782054901123,
+      "rejected_logprob": -5.0244140625,
+      "margin": 2.8612358570098877,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 64,
+      "status": "PASS",
+      "prompt": "Мне продолжают звонить по старому номеру после его изменения.",
+      "chosen_logprob": -2.305734634399414,
+      "rejected_logprob": -2.4351508617401123,
+      "margin": 0.12941622734069824,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 65,
+      "status": "PASS",
+      "prompt": "Интеграция с почтой перестала создавать задачи из новых писем.",
+      "chosen_logprob": -2.6598737239837646,
+      "rejected_logprob": -2.457772970199585,
+      "margin": -0.2021007537841797,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 66,
+      "status": "PASS",
+      "prompt": "Мне нужно оплатить счёт банковским переводом.",
+      "chosen_logprob": -2.4201290607452393,
+      "rejected_logprob": -2.7337868213653564,
+      "margin": 0.3136577606201172,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 67,
+      "status": "PASS",
+      "prompt": "Клиенты получают письма с неправильным часовым поясом в указанных датах.",
+      "chosen_logprob": -2.3325891494750977,
+      "rejected_logprob": -2.9686129093170166,
+      "margin": 0.636023759841919,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 68,
+      "status": "PASS",
+      "prompt": "Нужно посмотреть, кто изменил настройки аккаунта.",
+      "chosen_logprob": -2.677899122238159,
+      "rejected_logprob": -3.2714948654174805,
+      "margin": 0.5935957431793213,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 69,
+      "status": "PASS",
+      "prompt": "После обновления данных сегмент не пересчитывается.",
+      "chosen_logprob": -2.062739610671997,
+      "rejected_logprob": -2.584282636642456,
+      "margin": 0.521543025970459,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 70,
+      "status": "PASS",
+      "prompt": "Заказ отмечен как доставленный, но я его не получил.",
+      "chosen_logprob": -2.0092732906341553,
+      "rejected_logprob": -3.707728862762451,
+      "margin": 1.698455572128296,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 71,
+      "status": "PASS",
+      "prompt": "Не могу найти историю платежей по подписке.",
+      "chosen_logprob": -2.4492411613464355,
+      "rejected_logprob": -3.701367139816284,
+      "margin": 1.2521259784698486,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 72,
+      "status": "PASS",
+      "prompt": "На сайте написано, что товар есть в наличии, но после оформления мне сообщили, что его нет.",
+      "chosen_logprob": -2.1217100620269775,
+      "rejected_logprob": -4.119474411010742,
+      "margin": 1.9977643489837646,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 73,
+      "status": "PASS",
+      "prompt": "Курьер общался со мной грубо.",
+      "chosen_logprob": -1.647212028503418,
+      "rejected_logprob": -2.4788224697113037,
+      "margin": 0.8316104412078857,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 74,
+      "status": "PASS",
+      "prompt": "Мне начислили меньше бонусов, чем было указано в акции.",
+      "chosen_logprob": -2.243786334991455,
+      "rejected_logprob": -2.939081907272339,
+      "margin": 0.6952955722808838,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 75,
+      "status": "PASS",
+      "prompt": "Мне нужно удалить сохранённые реквизиты компании.",
+      "chosen_logprob": -2.484821081161499,
+      "rejected_logprob": -2.5955615043640137,
+      "margin": 0.11074042320251465,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 76,
+      "status": "PASS",
+      "prompt": "После восстановления сервиса часть операций не обработалась.",
+      "chosen_logprob": -1.974157452583313,
+      "rejected_logprob": -3.6493093967437744,
+      "margin": 1.6751519441604614,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 77,
+      "status": "PASS",
+      "prompt": "Не могу добавить юридический адрес компании.",
+      "chosen_logprob": -2.6425485610961914,
+      "rejected_logprob": -2.2626593112945557,
+      "margin": -0.37988924980163574,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 78,
+      "status": "PASS",
+      "prompt": "Сайт показывает белый экран после входа.",
+      "chosen_logprob": -2.3382139205932617,
+      "rejected_logprob": -2.515979766845703,
+      "margin": 0.1777658462524414,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 79,
+      "status": "PASS",
+      "prompt": "Старый email больше не существует, а он нужен для входа.",
+      "chosen_logprob": -1.8833688497543335,
+      "rejected_logprob": -3.4408016204833984,
+      "margin": 1.557432770729065,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 80,
+      "status": "PASS",
+      "prompt": "Я уже оплатил продавцу напрямую, но товар не отправлен.",
+      "chosen_logprob": -2.417544364929199,
+      "rejected_logprob": -3.8850178718566895,
+      "margin": 1.4674735069274902,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 81,
+      "status": "PASS",
+      "prompt": "Карточка клиента показывает старую компанию, хотя я уже обновил её.",
+      "chosen_logprob": -2.2610175609588623,
+      "rejected_logprob": -2.8680813312530518,
+      "margin": 0.6070637702941895,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 82,
+      "status": "PASS",
+      "prompt": "В приложении появилась комиссия, которой не было в предварительном расчёте.",
+      "chosen_logprob": -2.4913110733032227,
+      "rejected_logprob": -3.25514817237854,
+      "margin": 0.7638370990753174,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 83,
+      "status": "PASS",
+      "prompt": "Мне вернули деньги не на ту карту.",
+      "chosen_logprob": -2.0715842247009277,
+      "rejected_logprob": -2.8365700244903564,
+      "margin": 0.7649857997894287,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 84,
+      "status": "PASS",
+      "prompt": "Мы отменили подписку, но получили новый счёт за следующий период.",
+      "chosen_logprob": -2.530169725418091,
+      "rejected_logprob": -3.752286911010742,
+      "margin": 1.2221171855926514,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 85,
+      "status": "PASS",
+      "prompt": "Я зарегистрировал второй аккаунт случайно.",
+      "chosen_logprob": -2.7235171794891357,
+      "rejected_logprob": -2.3203842639923096,
+      "margin": -0.40313291549682617,
+      "chosen_preferred_by_model": false
+    },
+    {
+      "index": 86,
+      "status": "PASS",
+      "prompt": "После удаления встречи в одном календаре она продолжает отображаться в сервисе.",
+      "chosen_logprob": -2.0769176483154297,
+      "rejected_logprob": -2.842604637145996,
+      "margin": 0.7656869888305664,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 87,
+      "status": "PASS",
+      "prompt": "В списке устройств отображается незнакомый компьютер.",
+      "chosen_logprob": -2.515151262283325,
+      "rejected_logprob": -3.9865167140960693,
+      "margin": 1.4713654518127441,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 88,
+      "status": "PASS",
+      "prompt": "Почему банкомат не принимает мою карту, хотя в магазине она работает?",
+      "chosen_logprob": -2.1714589595794678,
+      "rejected_logprob": -2.6595041751861572,
+      "margin": 0.48804521560668945,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 89,
+      "status": "PASS",
+      "prompt": "Почему вы просите повторно подтвердить карту? Я уже пользовался ей раньше.",
+      "chosen_logprob": -2.1946675777435303,
+      "rejected_logprob": -3.3115952014923096,
+      "margin": 1.1169276237487793,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 90,
+      "status": "PASS",
+      "prompt": "Хочу отключить рекламные push-уведомления, но оставить важные.",
+      "chosen_logprob": -2.1452434062957764,
+      "rejected_logprob": -3.124706268310547,
+      "margin": 0.9794628620147705,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 91,
+      "status": "PASS",
+      "prompt": "После удаления пользователя его действия исчезли из журнала аудита.",
+      "chosen_logprob": -2.5824882984161377,
+      "rejected_logprob": -3.628878593444824,
+      "margin": 1.0463902950286865,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 92,
+      "status": "PASS",
+      "prompt": "Новый пароль не сохраняется после нажатия кнопки.",
+      "chosen_logprob": -2.2057957649230957,
+      "rejected_logprob": -2.4975104331970215,
+      "margin": 0.2917146682739258,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 93,
+      "status": "PASS",
+      "prompt": "После изменения политики паролей сотрудники продолжают входить со старыми паролями.",
+      "chosen_logprob": -2.1361961364746094,
+      "rejected_logprob": -2.630772590637207,
+      "margin": 0.49457645416259766,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 94,
+      "status": "PASS",
+      "prompt": "У нас не совпадает количество активных пользователей с количеством лицензий.",
+      "chosen_logprob": -2.4181408882141113,
+      "rejected_logprob": -3.9937963485717773,
+      "margin": 1.575655460357666,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 95,
+      "status": "PASS",
+      "prompt": "Синхронизация Dropbox создаёт дубликаты файлов.",
+      "chosen_logprob": -2.18389892578125,
+      "rejected_logprob": -3.923666477203369,
+      "margin": 1.7397675514221191,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 96,
+      "status": "PASS",
+      "prompt": "После восстановления пароля меня всё равно не пускает в аккаунт.",
+      "chosen_logprob": -2.235781669616699,
+      "rejected_logprob": -3.210028886795044,
+      "margin": 0.9742472171783447,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 97,
+      "status": "PASS",
+      "prompt": "Система принимает файл, но после загрузки он не появляется в списке документов.",
+      "chosen_logprob": -2.597625732421875,
+      "rejected_logprob": -3.3504512310028076,
+      "margin": 0.7528254985809326,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 98,
+      "status": "PASS",
+      "prompt": "Система автоматически подставляет неправильное имя в документ.",
+      "chosen_logprob": -2.6543872356414795,
+      "rejected_logprob": -3.1534347534179688,
+      "margin": 0.49904751777648926,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 99,
+      "status": "PASS",
+      "prompt": "Не могу изменить расписание автоматического отчёта.",
+      "chosen_logprob": -2.0742080211639404,
+      "rejected_logprob": -2.35438871383667,
+      "margin": 0.2801806926727295,
+      "chosen_preferred_by_model": true
+    },
+    {
+      "index": 100,
+      "status": "PASS",
+      "prompt": "Я не могу открыть общий документ, хотя коллеги говорят, что дали мне доступ.",
+      "chosen_logprob": -2.310866594314575,
+      "rejected_logprob": -2.937852621078491,
+      "margin": 0.626986026763916,
+      "chosen_preferred_by_model": true
+    }
+  ]
+}

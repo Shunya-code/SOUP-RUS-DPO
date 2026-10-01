@@ -1,0 +1,26 @@
+{
+  "project": "SOUP Russian DPO Audit",
+  "base_model": "Vikhrmodels/Vikhr-Llama3.1-8B-Instruct-R-21-09-24",
+  "task": "DPO",
+  "hardware": "Tesla T4, approximately 14.6 GB VRAM",
+  "training_steps": 339,
+  "epochs": 3,
+  "dataset_samples": 450,
+  "lora": {
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "parameters": 6815744
+  },
+  "verification": {
+    "lora_runtime": "5/5",
+    "dpo_preference_accuracy": 0.93,
+    "base_runtime": "failed due to incompatible offload state",
+    "base_vs_lora": "skipped"
+  },
+  "note": "Model/checkpoint weights are intentionally excluded from this repository."
+}
