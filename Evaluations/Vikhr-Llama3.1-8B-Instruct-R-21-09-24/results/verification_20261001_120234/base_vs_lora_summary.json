@@ -1,0 +1,14 @@
+{
+  "base_success": 0,
+  "base_total": 5,
+  "lora_success": 5,
+  "lora_total": 5,
+  "base_test_success": false,
+  "lora_test_success": true,
+  "base_test_error": "RuntimeError('Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!')",
+  "lora_test_error": null,
+  "base_input_device": "cuda:0",
+  "lora_input_device": "cuda:0",
+  "models_reloaded": false,
+  "comparison_valid": false
+}

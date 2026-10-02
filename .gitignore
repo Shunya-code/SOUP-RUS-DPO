@@ -1,0 +1,57 @@
+# ===================================
+# training checkpoints 
+#================================
+
+Models/*/checkpoint-*/
+Models/*/hf_offload/
+
+#======================
+# Python
+#======================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+
+#=====================
+# Jupyter/Colab
+#=====================
+
+.ipynb_checkpoints
+
+#=====================
+# Environment/secrets
+#=====================
+
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# ===================================
+# Old pre-migration directories
+# ===================================
+
+/Output/
+/evaluation/
+/soup.yaml
+
+# ===================================
+# Old pre-migration directories
+# ===================================
+
+/Output/
+/evaluation/
+/soup.yaml
+
+# ===================================
+# Legacy / pre-migration artifacts
+# ===================================
+
+/Output/
+/evaluation/
+/Evaluation/
+/soup.yaml
+/training_timestamped.log

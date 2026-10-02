@@ -1,0 +1,318 @@
+================================================================================
+DPO LoRA EVALUATION
+================================================================================
+
+Dataset: /content/drive/MyDrive/Soup/RussianDPO/Data/train.jsonl
+Examples loaded: 100
+Examples valid: 100
+Examples correct: 93
+Preference accuracy: 93.00%
+Mean margin: +0.887668
+Median margin: +0.765336
+
+BASE vs LoRA generation: SKIPPED
+Reason: existing Base model has an incompatible CPU/disk offload configuration.
+
+================================================================================
+PER-EXAMPLE RESULTS
+================================================================================
+
+Example 1: PASS
+chosen=-2.218581, rejected=-2.332187, margin=+0.113606, chosen_preferred=True
+
+Example 2: PASS
+chosen=-2.404428, rejected=-3.214123, margin=+0.809695, chosen_preferred=True
+
+Example 3: PASS
+chosen=-2.189654, rejected=-2.220310, margin=+0.030656, chosen_preferred=True
+
+Example 4: PASS
+chosen=-2.284384, rejected=-2.993242, margin=+0.708858, chosen_preferred=True
+
+Example 5: PASS
+chosen=-2.155995, rejected=-2.826208, margin=+0.670213, chosen_preferred=True
+
+Example 6: PASS
+chosen=-2.344561, rejected=-2.500917, margin=+0.156356, chosen_preferred=True
+
+Example 7: PASS
+chosen=-2.380944, rejected=-2.906711, margin=+0.525767, chosen_preferred=True
+
+Example 8: PASS
+chosen=-2.187941, rejected=-2.597210, margin=+0.409269, chosen_preferred=True
+
+Example 9: PASS
+chosen=-2.552554, rejected=-2.405679, margin=-0.146875, chosen_preferred=False
+
+Example 10: PASS
+chosen=-1.829204, rejected=-3.528650, margin=+1.699447, chosen_preferred=True
+
+Example 11: PASS
+chosen=-2.347393, rejected=-3.525477, margin=+1.178084, chosen_preferred=True
+
+Example 12: PASS
+chosen=-2.223347, rejected=-3.702343, margin=+1.478996, chosen_preferred=True
+
+Example 13: PASS
+chosen=-2.295265, rejected=-3.564775, margin=+1.269510, chosen_preferred=True
+
+Example 14: PASS
+chosen=-2.081155, rejected=-3.456691, margin=+1.375535, chosen_preferred=True
+
+Example 15: PASS
+chosen=-1.979115, rejected=-2.397608, margin=+0.418493, chosen_preferred=True
+
+Example 16: PASS
+chosen=-2.245544, rejected=-3.365428, margin=+1.119884, chosen_preferred=True
+
+Example 17: PASS
+chosen=-1.890226, rejected=-2.557251, margin=+0.667025, chosen_preferred=True
+
+Example 18: PASS
+chosen=-2.232577, rejected=-1.364459, margin=-0.868118, chosen_preferred=False
+
+Example 19: PASS
+chosen=-2.395802, rejected=-3.610758, margin=+1.214955, chosen_preferred=True
+
+Example 20: PASS
+chosen=-2.058413, rejected=-2.628165, margin=+0.569752, chosen_preferred=True
+
+Example 21: PASS
+chosen=-2.355828, rejected=-3.890384, margin=+1.534557, chosen_preferred=True
+
+Example 22: PASS
+chosen=-2.089850, rejected=-2.968472, margin=+0.878622, chosen_preferred=True
+
+Example 23: PASS
+chosen=-2.236236, rejected=-3.091267, margin=+0.855031, chosen_preferred=True
+
+Example 24: PASS
+chosen=-1.642722, rejected=-4.480582, margin=+2.837860, chosen_preferred=True
+
+Example 25: PASS
+chosen=-1.651162, rejected=-3.094277, margin=+1.443115, chosen_preferred=True
+
+Example 26: PASS
+chosen=-1.941303, rejected=-3.611614, margin=+1.670311, chosen_preferred=True
+
+Example 27: PASS
+chosen=-2.538737, rejected=-3.776112, margin=+1.237375, chosen_preferred=True
+
+Example 28: PASS
+chosen=-2.272282, rejected=-4.330778, margin=+2.058496, chosen_preferred=True
+
+Example 29: PASS
+chosen=-2.334256, rejected=-3.919137, margin=+1.584880, chosen_preferred=True
+
+Example 30: PASS
+chosen=-2.093862, rejected=-4.149486, margin=+2.055624, chosen_preferred=True
+
+Example 31: PASS
+chosen=-2.382501, rejected=-4.563268, margin=+2.180767, chosen_preferred=True
+
+Example 32: PASS
+chosen=-1.978147, rejected=-2.275002, margin=+0.296855, chosen_preferred=True
+
+Example 33: PASS
+chosen=-2.166764, rejected=-3.440826, margin=+1.274062, chosen_preferred=True
+
+Example 34: PASS
+chosen=-2.451818, rejected=-3.764301, margin=+1.312483, chosen_preferred=True
+
+Example 35: PASS
+chosen=-2.142908, rejected=-2.661145, margin=+0.518238, chosen_preferred=True
+
+Example 36: PASS
+chosen=-2.191185, rejected=-2.481728, margin=+0.290542, chosen_preferred=True
+
+Example 37: PASS
+chosen=-2.525950, rejected=-3.241250, margin=+0.715300, chosen_preferred=True
+
+Example 38: PASS
+chosen=-2.351697, rejected=-2.006995, margin=-0.344702, chosen_preferred=False
+
+Example 39: PASS
+chosen=-2.336654, rejected=-2.262278, margin=-0.074376, chosen_preferred=False
+
+Example 40: PASS
+chosen=-2.160588, rejected=-2.738183, margin=+0.577596, chosen_preferred=True
+
+Example 41: PASS
+chosen=-2.927453, rejected=-3.308875, margin=+0.381422, chosen_preferred=True
+
+Example 42: PASS
+chosen=-2.257631, rejected=-2.703201, margin=+0.445570, chosen_preferred=True
+
+Example 43: PASS
+chosen=-2.141775, rejected=-3.448562, margin=+1.306787, chosen_preferred=True
+
+Example 44: PASS
+chosen=-2.124962, rejected=-3.323547, margin=+1.198585, chosen_preferred=True
+
+Example 45: PASS
+chosen=-2.437207, rejected=-5.895064, margin=+3.457857, chosen_preferred=True
+
+Example 46: PASS
+chosen=-2.576513, rejected=-2.868382, margin=+0.291869, chosen_preferred=True
+
+Example 47: PASS
+chosen=-2.436348, rejected=-2.584822, margin=+0.148473, chosen_preferred=True
+
+Example 48: PASS
+chosen=-1.996732, rejected=-2.463279, margin=+0.466547, chosen_preferred=True
+
+Example 49: PASS
+chosen=-2.223006, rejected=-3.496046, margin=+1.273040, chosen_preferred=True
+
+Example 50: PASS
+chosen=-2.259288, rejected=-3.418794, margin=+1.159506, chosen_preferred=True
+
+Example 51: PASS
+chosen=-2.075003, rejected=-2.557400, margin=+0.482397, chosen_preferred=True
+
+Example 52: PASS
+chosen=-2.304060, rejected=-3.205106, margin=+0.901046, chosen_preferred=True
+
+Example 53: PASS
+chosen=-2.156095, rejected=-3.062689, margin=+0.906594, chosen_preferred=True
+
+Example 54: PASS
+chosen=-2.296354, rejected=-3.019896, margin=+0.723542, chosen_preferred=True
+
+Example 55: PASS
+chosen=-2.593984, rejected=-2.798335, margin=+0.204352, chosen_preferred=True
+
+Example 56: PASS
+chosen=-2.227147, rejected=-3.837550, margin=+1.610403, chosen_preferred=True
+
+Example 57: PASS
+chosen=-2.141458, rejected=-3.256523, margin=+1.115065, chosen_preferred=True
+
+Example 58: PASS
+chosen=-2.023189, rejected=-3.856345, margin=+1.833155, chosen_preferred=True
+
+Example 59: PASS
+chosen=-2.476810, rejected=-2.594147, margin=+0.117336, chosen_preferred=True
+
+Example 60: PASS
+chosen=-2.459085, rejected=-2.950459, margin=+0.491374, chosen_preferred=True
+
+Example 61: PASS
+chosen=-2.424678, rejected=-3.471272, margin=+1.046593, chosen_preferred=True
+
+Example 62: PASS
+chosen=-2.540576, rejected=-3.447038, margin=+0.906462, chosen_preferred=True
+
+Example 63: PASS
+chosen=-2.163178, rejected=-5.024414, margin=+2.861236, chosen_preferred=True
+
+Example 64: PASS
+chosen=-2.305735, rejected=-2.435151, margin=+0.129416, chosen_preferred=True
+
+Example 65: PASS
+chosen=-2.659874, rejected=-2.457773, margin=-0.202101, chosen_preferred=False
+
+Example 66: PASS
+chosen=-2.420129, rejected=-2.733787, margin=+0.313658, chosen_preferred=True
+
+Example 67: PASS
+chosen=-2.332589, rejected=-2.968613, margin=+0.636024, chosen_preferred=True
+
+Example 68: PASS
+chosen=-2.677899, rejected=-3.271495, margin=+0.593596, chosen_preferred=True
+
+Example 69: PASS
+chosen=-2.062740, rejected=-2.584283, margin=+0.521543, chosen_preferred=True
+
+Example 70: PASS
+chosen=-2.009273, rejected=-3.707729, margin=+1.698456, chosen_preferred=True
+
+Example 71: PASS
+chosen=-2.449241, rejected=-3.701367, margin=+1.252126, chosen_preferred=True
+
+Example 72: PASS
+chosen=-2.121710, rejected=-4.119474, margin=+1.997764, chosen_preferred=True
+
+Example 73: PASS
+chosen=-1.647212, rejected=-2.478822, margin=+0.831610, chosen_preferred=True
+
+Example 74: PASS
+chosen=-2.243786, rejected=-2.939082, margin=+0.695296, chosen_preferred=True
+
+Example 75: PASS
+chosen=-2.484821, rejected=-2.595562, margin=+0.110740, chosen_preferred=True
+
+Example 76: PASS
+chosen=-1.974157, rejected=-3.649309, margin=+1.675152, chosen_preferred=True
+
+Example 77: PASS
+chosen=-2.642549, rejected=-2.262659, margin=-0.379889, chosen_preferred=False
+
+Example 78: PASS
+chosen=-2.338214, rejected=-2.515980, margin=+0.177766, chosen_preferred=True
+
+Example 79: PASS
+chosen=-1.883369, rejected=-3.440802, margin=+1.557433, chosen_preferred=True
+
+Example 80: PASS
+chosen=-2.417544, rejected=-3.885018, margin=+1.467474, chosen_preferred=True
+
+Example 81: PASS
+chosen=-2.261018, rejected=-2.868081, margin=+0.607064, chosen_preferred=True
+
+Example 82: PASS
+chosen=-2.491311, rejected=-3.255148, margin=+0.763837, chosen_preferred=True
+
+Example 83: PASS
+chosen=-2.071584, rejected=-2.836570, margin=+0.764986, chosen_preferred=True
+
+Example 84: PASS
+chosen=-2.530170, rejected=-3.752287, margin=+1.222117, chosen_preferred=True
+
+Example 85: PASS
+chosen=-2.723517, rejected=-2.320384, margin=-0.403133, chosen_preferred=False
+
+Example 86: PASS
+chosen=-2.076918, rejected=-2.842605, margin=+0.765687, chosen_preferred=True
+
+Example 87: PASS
+chosen=-2.515151, rejected=-3.986517, margin=+1.471365, chosen_preferred=True
+
+Example 88: PASS
+chosen=-2.171459, rejected=-2.659504, margin=+0.488045, chosen_preferred=True
+
+Example 89: PASS
+chosen=-2.194668, rejected=-3.311595, margin=+1.116928, chosen_preferred=True
+
+Example 90: PASS
+chosen=-2.145243, rejected=-3.124706, margin=+0.979463, chosen_preferred=True
+
+Example 91: PASS
+chosen=-2.582488, rejected=-3.628879, margin=+1.046390, chosen_preferred=True
+
+Example 92: PASS
+chosen=-2.205796, rejected=-2.497510, margin=+0.291715, chosen_preferred=True
+
+Example 93: PASS
+chosen=-2.136196, rejected=-2.630773, margin=+0.494576, chosen_preferred=True
+
+Example 94: PASS
+chosen=-2.418141, rejected=-3.993796, margin=+1.575655, chosen_preferred=True
+
+Example 95: PASS
+chosen=-2.183899, rejected=-3.923666, margin=+1.739768, chosen_preferred=True
+
+Example 96: PASS
+chosen=-2.235782, rejected=-3.210029, margin=+0.974247, chosen_preferred=True
+
+Example 97: PASS
+chosen=-2.597626, rejected=-3.350451, margin=+0.752825, chosen_preferred=True
+
+Example 98: PASS
+chosen=-2.654387, rejected=-3.153435, margin=+0.499048, chosen_preferred=True
+
+Example 99: PASS
+chosen=-2.074208, rejected=-2.354389, margin=+0.280181, chosen_preferred=True
+
+Example 100: PASS
+chosen=-2.310867, rejected=-2.937853, margin=+0.626986, chosen_preferred=True

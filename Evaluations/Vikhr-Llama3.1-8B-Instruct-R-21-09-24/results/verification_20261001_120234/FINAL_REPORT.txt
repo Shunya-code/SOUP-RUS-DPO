@@ -1,0 +1,39 @@
+================================================================================
+FINAL DPO / LoRA EVALUATION REPORT
+================================================================================
+
+FINAL STATUS
+--------------------------------------------------------------------------------
+PASS
+
+LoRA RUNTIME
+--------------------------------------------------------------------------------
+5/5 passed
+
+DPO EVALUATION
+--------------------------------------------------------------------------------
+Examples loaded:      100
+Examples valid:       100
+Chosen > Rejected:    93/100
+Preference accuracy:  93.00%
+Mean margin:          +0.887668
+Median margin:        +0.765336
+
+BASE vs LoRA
+--------------------------------------------------------------------------------
+SKIPPED
+Existing base model has incompatible CPU/disk offload state.
+No additional 8B model was loaded.
+
+CHECKS
+--------------------------------------------------------------------------------
+[PASS] checkpoint
+[PASS] lora_config
+[PASS] lora_parameters
+[PASS] tokenizer
+[PASS] lora_runtime
+[PASS] dpo_evaluation
+
+================================================================================
+FINAL STATUS: PASS
+================================================================================

@@ -1,0 +1,5 @@
+﻿transition,count,percentage
+Base ✓ → LoRA ✓,218,83.5249042145594
+Base ✗ → LoRA ✗,22,8.42911877394636
+Base ✓ → LoRA ✗,11,4.21455938697318
+Base ✗ → LoRA ✓,10,3.8314176245210727

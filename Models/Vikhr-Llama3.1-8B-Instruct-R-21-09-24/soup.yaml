@@ -1,0 +1,16 @@
+base: Vikhrmodels/Vikhr-Llama3.1-8B-Instruct-R-21-09-24
+task: dpo
+
+data:
+  train: /content/gdrive/MyDrive/Soup/RussianDPO/Data/train.jsonl
+  test: /content/gdrive/MyDrive/Soup/RussianDPO/Data/test.jsonl
+
+training:
+  epochs: 3
+  lr: 5e-6
+  batch_size: 1
+  lora:
+    r: 16
+    alpha: 32
+  quantization: 4bit
+  output: /content/gdrive/MyDrive/Soup/RussianDPO/Models/Vikhr-Llama3.1-8B-Instruct-R-21-09-24
