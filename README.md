@@ -153,6 +153,8 @@ Large `checkpoint-*` directories are intentionally excluded from Git. They remai
 
 ## 📖 Documentation
 
+- **[DPO Experiment Report](deliverables/Report(DPO)Shunya-code.pdf)** — polished two-page report covering training, verification, independent evaluation, and limitations
+
 - **[Experiment Card](docs/EXPERIMENT_CARD.md)** — one-page overview
 - **[Reproduction Notes](docs/REPRODUCTION.md)** — environment, data, and verification sequence
 - **[Engineering Summary](SUMMARY.md)** — detailed interpretation
