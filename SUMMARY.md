@@ -1,160 +1,151 @@
-# Engineering Summary — SOUP Russian DPO Audit
+# Engineering Summary — SOUP Russian DPO
 
-## 1. Objective
+## Executive summary
 
-The purpose of this work was not simply to determine whether a training
-metric improved. The objective was to determine whether a SOUP training
-run produced credible evidence of real training and whether the resulting
-LoRA artifact could actually be loaded and used.
+This repository documents a Russian-language DPO + LoRA training run using SOUP and the `Vikhrmodels/Vikhr-Llama3.1-8B-Instruct-R-21-09-24` base model on a Tesla T4.
 
-The experiment used the Russian instruction model
-`Vikhrmodels/Vikhr-Llama3.1-8B-Instruct-R-21-09-24` with DPO and LoRA on
-a Tesla T4 with approximately 14.6 GB of GPU memory.
+The experiment provides strong evidence that training executed and produced a real LoRA adapter. The independent evaluation, however, does **not** support a simple claim that DPO improved the model overall.
 
-The configured LoRA adapter used rank 16, alpha 32, dropout 0.05, and
-targeted `q_proj` and `v_proj`.
+The strongest result is the verification story: training evidence is substantial, and checkpoint-level parameter updates are now directly verified. Runtime and independent-comparison gaps remain documented rather than overstated.
+
+## 1. Run configuration
+
+- Base model: `Vikhrmodels/Vikhr-Llama3.1-8B-Instruct-R-21-09-24`
+- Method: DPO + LoRA
+- Quantization: 4-bit
+- Supplied training data: 500 examples
+- SOUP training split: 450 train + 50 validation
+- Independent assessment: 261 held-out test examples
+- Epochs: 3
+- Steps: 339
+- Learning rate: `5e-6`
+- Batch size: 1
+- LoRA rank: 16
+- LoRA alpha: 32
+- LoRA dropout: 0.05
+- Target modules: `q_proj`, `v_proj`
+- Hardware: Tesla T4, approximately 14.6 GiB
 
 ## 2. Evidence that training occurred
 
-The training log records a complete SOUP invocation beginning on
-2026-09-30 and ending with return code 0.
+The retained artifacts include:
 
-The run reports:
+- timestamped training log;
+- checkpoints at steps 200, 300 and 339;
+- trainer state and learning-rate history;
+- changing loss values;
+- LoRA configuration;
+- final adapter with 128 tensors and 6,815,744 finite, non-zero parameters;
+- successful LoRA runtime generation on 5/5 prompts.
 
-- 450 training samples
-- 3 epochs
-- 339 training steps
-- approximately 2 h 26 min duration
-- progressive checkpoints at steps 200, 300 and 339
+Recorded loss moved from approximately 0.6928 to 0.1326 at checkpoint 200, 0.0907 at checkpoint 300, and 0.0708 at checkpoint 339.
 
-The checkpoints contain trainer state, optimizer state, scheduler state,
-RNG state, training arguments, tokenizer information, and the LoRA
-adapter.
+These artifacts strongly support the conclusion that a training process executed and produced a changing LoRA artifact.
 
-Trainer state independently shows:
+## 3. Evaluation results
 
-- checkpoint-200 → global step 200
-- checkpoint-300 → global step 300
-- checkpoint-339 → global step 339
+### 50-example validation
 
-The loss history is not constant:
+- Base: 43/50 = 86.0%
+- LoRA: 45/50 = 90.0%
+- Change: +4.0 percentage points
 
-- initial recorded loss: 0.6928
-- checkpoint 200 final recorded loss: 0.1326
-- checkpoint 300 final recorded loss: 0.0907
-- checkpoint 339 final recorded loss: 0.0708
+This validation set is sampled from the supplied training split and therefore is useful as a validation/control measurement, not as independent held-out evidence.
 
-Learning-rate values were also recorded throughout training.
+### 261-example independent assessment
 
-The final adapter contains 128 tensors and 6,815,744 parameters.
-All inspected adapter values are finite and non-zero.
+- Base: 229/261 = 87.739%
+- LoRA: 228/261 = 87.356%
+- Change: -0.383 percentage points
+- Mean margin: 0.16850 → 0.16983
+- Mean-margin change: +0.00132
 
-Taken together, these artifacts provide strong evidence that an actual
-training process executed and produced a changing LoRA adapter.
+Transitions:
 
-## 3. What this evidence does not prove
+- Base correct → LoRA correct: 218
+- Base wrong → LoRA wrong: 22
+- Base correct → LoRA wrong: 11
+- Base wrong → LoRA correct: 10
 
-The audit deliberately distinguishes execution evidence from correctness
-evidence.
+The adapter therefore recovered 10 previously wrong examples while losing 11 previously correct examples on this assessment.
 
-A changing loss does not prove that the intended dataset was processed
-correctly.
+### Prompted-base control
 
-Checkpoint existence does not prove that every intended parameter was
-updated.
+On the same 261-example assessment:
 
-A non-zero LoRA file does not prove that its updates are useful.
+- Base: 87.739%
+- Prompted base: 89.272%
+- Change: +1.533 percentage points
+- Mean margin: 0.16850 → 0.19967
 
-Reported GPU memory and speed numbers are not independent hardware
-measurements.
+This control is important because it shows that prompt formatting alone affected the measured preference score.
 
-The audit also cannot by itself establish that the chosen/rejected
-responses were semantically correct or that the evaluation set was free
-of leakage.
+### 93/100 DPO evaluation
 
-Most importantly, the original base-model runtime check exposed a
-separate problem.
+A separate 100-example DPO preference evaluation produced:
 
-## 4. Silent failure discovered during verification
-
-The existing base model had been loaded using CPU/disk offloading.
-Although the object existed and its weights were distributed across
-CUDA, CPU and disk, generation failed with:
-
-`Expected all tensors to be on the same device, but found at least two
-devices, cuda:0 and cpu`
-
-Attempting to reload the full 8B model without quantization caused GPU
-out-of-memory errors. A subsequent 4-bit loading attempt also failed
-because the existing Colab GPU was already almost completely occupied.
-
-Rather than repeatedly loading another 8B model, verification reused
-the already loaded objects.
-
-The LoRA model successfully generated all five runtime test prompts.
-
-Result:
-
-- LoRA runtime: 5/5
-- Base runtime: 0/5
-- Base-vs-LoRA generation comparison: skipped
-
-This is an important distinction. The failed base runtime does not prove
-that the trained LoRA is bad. It demonstrates that the verification
-environment itself contained an execution problem.
-
-## 5. DPO evaluation
-
-An independent DPO evaluation over 100 examples reported:
-
-- chosen > rejected: 93/100
-- preference accuracy: 93%
+- 93 chosen > rejected
+- 93% preference accuracy
 - mean margin: +0.887668
 - median margin: +0.765336
 
-These are useful evaluation measurements, but they should not be treated
-as proof that the training run itself was valid. They are one layer of
-evidence among several.
+That evaluation uses `Data/train.jsonl`. It is therefore treated as **training-set verification**, not held-out generalization evidence.
 
-## 6. What should change in SOUP
+## 4. Runtime verification failure
 
-The main lesson is not that SOUP needs another training framework.
+The original base-model runtime check failed because the existing base model had an incompatible CPU/disk offload state. The recorded error was:
 
-The more useful direction is an evidence-driven training workflow.
+`Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!`
 
-Before training, SOUP should determine whether the selected model,
-quantization, sequence length, batch configuration and LoRA configuration
-are feasible on the current machine.
+The LoRA model generated successfully on all five runtime prompts.
 
-During training, SOUP should emit structured events describing model
-loading, device placement, trainable parameters, optimizer creation,
-gradient/update health, checkpoint creation and hardware telemetry.
+A clean base-vs-LoRA generation comparison was therefore not valid in that runtime. This is a verification-environment failure, not evidence that the adapter itself is bad.
 
-After training, SOUP should automatically perform a verification ladder:
+## 5. Independent integrity checks performed
 
-1. Artifact integrity.
-2. Configuration integrity.
-3. Trainable-parameter/update verification.
-4. Checkpoint progression.
-5. Fresh-process checkpoint loading.
-6. Runtime generation.
-7. Evaluation integrity.
-8. Hardware/resource consistency.
+The repository audit also verified:
 
-A failed stage should produce an actionable explanation rather than
-simply marking the run successful because a loss curve exists.
+- train JSONL: 500 valid records;
+- test JSONL: 261 valid records;
+- validation JSONL: 50 valid records;
+- assessment JSONL: 261 valid records;
+- train/test exact-record overlap: 0;
+- train/test prompt overlap: 0;
+- assessment set exactly corresponds to the held-out test split;
+- validation-50 is intentionally sampled from the training split with seed 42;
+- duplicate legacy result files were byte-for-byte identical to their canonical copies and were consolidated.
 
-## 7. Final assessment
+## 6. What remains unproven
 
-The evidence strongly supports that this particular DPO training run
-executed and produced a real LoRA artifact.
+The following should not be inferred from the current evidence:
 
-It does not support the stronger claim that every aspect of the training
-and deployment pipeline was correct.
+- that every intended optimizer update occurred beyond the checkpoint-level parameter-change evidence;
+- that the dataset's preference labels are semantically correct;
+- that there is no deeper semantic leakage beyond exact/prompt overlap;
+- that the independent assessment is statistically improved by DPO;
+- that the original base model can be cleanly compared in the recorded runtime;
+- that the reported framework memory values equal an independently measured peak;
+- that the training-state argument preservation was complete.
 
-That distinction is the central engineering result of this audit.
+## 7. Parameter-update verification
 
-The most valuable improvement for SOUP is therefore not another metric.
-It is a verification system that understands the relationship between
-the selected model, available hardware, training configuration,
-checkpoint artifacts and actual runtime behavior.
+The checkpoint-level update check is now complete. Comparing checkpoint-200 with checkpoint-339 produced:
+
+- 128 / 128 LoRA tensors changed
+- 6,815,680 / 6,815,744 adapter elements changed
+- changed fraction: 99.999061%
+- mean absolute delta: 5.51219836e-05
+- maximum absolute delta: 1.68222934e-04
+- result: **PASS**
+
+The raw output is preserved at `Evaluations/Vikhr-Llama3.1-8B-Instruct-R-21-09-24/results/parameter_update_verification.txt`. The large checkpoint directories remain intentionally excluded from Git.
+
+## 8. Engineering conclusion
+
+The defensible conclusion is not simply **"DPO improved the model."**
+
+It is:
+
+> **SOUP successfully executed a DPO/LoRA training run and produced a valid adapter. Independent assessment was essentially flat, while the audit exposed concrete runtime and verification gaps that should be addressed before claiming end-to-end correctness.**
+
+That distinction is the central engineering result of this project.

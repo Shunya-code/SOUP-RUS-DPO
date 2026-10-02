@@ -19,7 +19,7 @@ Independently checked or constrained:
 - Missing hardware telemetry was not invented.
 - The base-model runtime failure was preserved as a negative result.
 - The final verdict was based on the evidence gaps, not on the loss curve alone.
-- The new parameter-update script is an additional verification layer; it does not retroactively claim that it was already run.
+- The parameter-update verification was subsequently rerun against checkpoint-200 and checkpoint-339; the raw result is committed with the evaluation artifacts.
 
 Important limitation:
 The repository evidence available for this audit does not contain every raw artifact requested by the submission rubric. Those omissions are reported explicitly rather than presented as successful checks.

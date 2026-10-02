@@ -10,6 +10,8 @@
 
 ## Evidence already documented
 
+- Parameter-update verification: **PASS** — checkpoint-200 → checkpoint-339 changed 128/128 LoRA tensors and 99.999061% of adapter elements; raw output is committed.
+
 - 450 training samples are reported in the audit summary.
 - 3 epochs / 339 steps.
 - Tesla T4, approximately 14.6 GB reported memory.
@@ -21,21 +23,19 @@
 - Base runtime: failed due CUDA/CPU device mismatch; clean base-vs-LoRA generation comparison was skipped.
 - Training forensics: 12/13 critical checks passed; trainer-argument preservation was the reported failed check.
 
-## Missing / not independently evidenced in the committed tree
+## Remaining gaps / not independently evidenced in the committed tree
 
-- Raw timestamped training log.
-- Raw `nvidia-smi` output/peak telemetry.
-- Direct before/after adapter-update measurement.
+- Independent peak VRAM telemetry during the full training run (the committed `nvidia-smi.txt` is not a full peak trace).
 - Independent per-step gradient/update telemetry.
 - Resolved effective sequence length for the run.
 - Exact measured peak allocated/reserved VRAM.
 - Fresh-process base-vs-LoRA generation comparison.
 - Dataset semantic correctness evidence.
-- Evaluation train/test leakage or overlap evidence.
+- Committed raw dataset leakage/overlap evidence beyond the audit summary.
 - Raw `soup data doctor` output for the exact run.
 - Raw `soup ship` output for the exact artifact.
 - Completed notebook containing all final verification outputs.
 
 ## Submission rule
 
-Do not replace any missing item with an inferred or invented value. A missing artifact should remain explicitly marked missing until the original raw evidence is recovered or the check is rerun.
+Do not replace any missing item with an inferred or invented value. The parameter-update check has now been rerun against the retained checkpoints and its raw output is committed. Other missing artifacts remain explicitly marked missing until recovered or rerun.

@@ -1,0 +1,13 @@
+=== LoRA PARAMETER UPDATE VERIFICATION ===
+Before checkpoint : Models/Vikhr-Llama3.1-8B-Instruct-R-21-09-24/checkpoint-200
+After checkpoint  : Models/Vikhr-Llama3.1-8B-Instruct-R-21-09-24/checkpoint-339
+
+Tensor count      : 128
+Total parameters  : 6,815,744
+Changed tensors   : 128
+Changed elements  : 6,815,680
+Changed fraction  : 0.99999061
+Mean abs delta    : 5.51219836e-05
+Max abs delta     : 1.68222934e-04
+
+RESULT: PASS — adapter parameters changed materially between checkpoints.

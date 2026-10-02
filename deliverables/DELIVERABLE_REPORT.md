@@ -38,7 +38,7 @@ The evidence is materially stronger than “loss went down”:
 - LoRA runtime generation succeeded on 5/5 prompts.
 - Independent DPO evaluation gave 93/100 chosen-over-rejected.
 
-However, a non-zero final adapter does not prove that the intended parameters changed *because of optimizer updates*. The strongest missing check is a before/after parameter-delta measurement. `deliverables/verify_parameter_updates.py` provides that check by comparing saved LoRA tensors across checkpoints. It should be run on the actual Drive checkpoints before final submission.
+A direct before/after checkpoint comparison has now been completed. Checkpoint-200 → checkpoint-339 changed all 128 LoRA tensors and 6,815,680 of 6,815,744 adapter elements (99.999061%). Mean absolute delta was 5.51219836e-05 and maximum absolute delta was 1.68222934e-04. The raw verification output is preserved at `Evaluations/Vikhr-Llama3.1-8B-Instruct-R-21-09-24/results/parameter_update_verification.txt`. This materially strengthens the evidence that the LoRA adapter was updated during training.
 
 What this check would **not** detect: a wrong dataset, label/masking bug, evaluation leakage, incorrect base-model revision, or an adapter that changed but learned the wrong thing.
 
@@ -46,7 +46,7 @@ What this check would **not** detect: a wrong dataset, label/masking bug, evalua
 
 | Failure mode | Evidence/check | SOUP checks catch it? | Conclusion |
 |---|---|---|---|
-| Training command exits but intended adapter is not updated | Checkpoints, non-zero adapter; explicit delta script added | Not fully | Needs direct before/after update evidence |
+| Training command exits but intended adapter is not updated | Checkpoints, non-zero adapter; checkpoint-200 → 339 tensor delta | Yes, for the checkpoint comparison | PASS — 128/128 tensors changed |
 | Wrong/offloaded runtime device placement | Base generation failed with CUDA/CPU mismatch | Existing artifact checks did not catch it | Confirmed failure |
 | Second full 8B load exceeds VRAM | Reload attempt produced OOM | Runtime verification exposed it | Confirmed limitation |
 | Dataset schema/row count problem | JSONL validation; 500 train / 261 test expected | Partly | Structural validity supported |
@@ -61,14 +61,13 @@ The existing audit explicitly records the base-model failure: `Expected all tens
 
 ### 4. Required changes before SHIP
 
-1. Run `verify_parameter_updates.py` against checkpoint-200 → checkpoint-339 and preserve its raw output.
 2. Capture and commit the raw `nvidia-smi` output from the training/evaluation environment, including memory usage.
 3. Record the resolved effective sequence length and the actual peak allocated/reserved VRAM.
 4. Run the requested Soup `data doctor` / pre-flight / `soup ship` checks on the exact artifact and preserve raw outputs.
 5. Perform fresh-process artifact loading and a clean base-vs-LoRA runtime comparison after resetting/freeing the GPU.
 6. Record dataset overlap/leakage checks and the exact dataset/config/model revisions used for evaluation.
 
-Until those are completed, the defensible verdict is **DON'T SHIP**.
+The overall evidence package remains **NOT FULLY VERIFIED FOR SHIP** because the base-vs-LoRA comparison and independent hardware telemetry gaps remain. The parameter-update requirement itself is now **PASS**.
 
 ### AI-tool disclosure
 
